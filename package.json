@@ -14,5 +14,10 @@
     "express-handlebars": "^3.0.2",
     "method-override": "^3.0.0",
     "mongoose": "^5.4.19"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^6.0.2"
   }
 }
