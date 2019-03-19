@@ -1,0 +1,12 @@
+<form method="POST" action="/items/{{item._id}}?_method=PUT">
+  {{> items-form}}
+  <!-- BUTTON -->
+  <p>
+    <button type="submit">Save Item</button>
+  </p>
+  <p>
+    <button>
+      <a href="/items/{{item._id}}">Cancel</a>
+    </button>
+  </p>
+</form>

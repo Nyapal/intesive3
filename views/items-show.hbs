@@ -1,0 +1,11 @@
+<a href="/">Home</a>
+
+<h1>{{item.name}}</h1>
+<h2>{{item.desc}}</h2>
+<p>{{item.status}}</p>
+
+<p><a href="/items/{{item._id}}/edit">Edit</a></p>
+
+<p><form method="POST" action="/items/{{item._id}}?_method=DELETE">
+    <button type="submit">Delete</button>
+</form></p>
