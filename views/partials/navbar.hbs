@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"> Lost N Found </a>
+      {{#if currentUser}}
+        <a href="/items/new" class="btn btn-primary navbar-btn">New Item</a>
+      {{/if}}
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      {{#if currentUser}}
+        <li><a href="/logout"> Log Out </a></li>
+        {{else}}
+        <li><a href="/sign-up"> Sign Up </a></li>
+        <li><a href="/login"> Log In </a></li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>

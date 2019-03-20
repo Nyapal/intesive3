@@ -1,8 +1,14 @@
 <h1>Items</h1>
 
-<a href="/items/new">New Item</a>
-
-{{#each items}}
-  <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
-  <small>{{this.desc}}</small>
-{{/each}}
+<div class="row">
+  {{#each items}}
+    <div class="col-md-4">
+      <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
+      Author: <small>{{this.author.username}}</small>
+      <p>
+        Description:
+        <small>{{this.desc}}</small>
+      </p>
+    </div>
+  {{/each}}
+</div>
