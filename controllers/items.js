@@ -21,34 +21,36 @@ function items (app) {
     res.render('items-new', {title: "New Item" , currentUser});
   })
 
-  app.post('/items/new', (req, res) => {
-    // let currentUser = req.user;
+  //CREATE
+  app.post("/items/new", (req, res) => {
     if (req.user) {
-      var item = new Item(req.body);
-      item.author = req.user._id;
-      
-      item.save()
-        .then(item => {
-          return User.findById(req.user._id);
-        })
-        .then(user => {
-          user.items.unshift(item);
-          user.save();
-          // REDIRECT TO THE NEW ITEM
-          res.redirect(`/items/${item._id}`);
-        })
-        .catch(err => {
-          console.log(err.message);
-        });
+        var item = new Item(req.body);
+        item.author = req.user._id;
+
+        item
+            .save()
+            .then(item => {
+                return User.findById(req.user._id);
+            })
+            .then(user => {
+                // user.items.unshift(item);
+                user.save();
+                // REDIRECT TO THE NEW item
+                res.redirect(`/items/${item._id}`);
+            })
+            .catch(err => {
+                console.log(err.message);
+            });
     } else {
-      return res.status(401); // UNAUTHORIZED
+        return res.status(401); // UNAUTHORIZED
     }
   })
 
   // SHOW
   app.get('/items/:id', (req, res) => {
     let currentUser = req.user;
-    Item.findById(req.params.id).then((item) => {
+    Item.findById(req.params.id).populate('author')
+      .then((item) => {
       res.render('items-show', { item, currentUser })
     }).catch((err) => {
       console.log(err.message);

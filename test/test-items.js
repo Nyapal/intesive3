@@ -3,15 +3,31 @@ const chaiHttp = require('chai-http')
 const server = require('../app')
 const should = chai.should()
 const Item = require('../models/item')
+const agent = chai.request.agent(server);
 
 const sampleItem = {
   'name': 'iPhone',
   'desc': 'black iPhone 6'
 }
-
+const user = {
+  username: 'poststest',
+  password: 'testposts'
+}
 chai.use(chaiHttp)
 
 describe('Items', ()  => {
+  before(function (done) {
+    agent
+      .post('/sign-up')
+      .set("content-type", "application/x-www-form-urlencoded")
+      .send(user)
+      .then(function (res) {
+        done();
+      })
+      .catch(function (err) {
+        done(err);
+      });
+  });
 
   // TEST INDEX
   it('should index ALL items on / GET', (done) => {
@@ -105,11 +121,24 @@ describe('Items', ()  => {
     })
   })
 
-  after(() => {
-    Item.deleteMany({name: 'iPhone'}).exec((err, items) => {
-      console.log(items)
-      items.remove()
+  after(function (done) {
+    Post.findOneAndDelete(newPost)
+    .then(function (res) {
+        agent.close()
+  
+        User.findOneAndDelete({
+            username: user.username
+        })
+          .then(function (res) {
+              done()
+          })
+          .catch(function (err) {
+              done(err);
+          });
     })
-  })
+    .catch(function (err) {
+        done(err);
+    });
+  });
 
 })
