@@ -1,7 +1,16 @@
 require('dotenv').config();
-
+//app.js
 const express = require('express')
 const app = express()
+const server = require('http').Server(app)
+
+//Socket.io
+const io = require('socket.io')(server);
+io.on("connection", (socket) => {
+  require('./sockets/chat.js')(io, socket)
+})
+
+//more app.js 
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -19,6 +28,7 @@ app.set('view engine', 'hbs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 app.use(cookieParser())
+app.use('/public', express.static('public'))
 
 var checkAuth = (req, res, next) => {
   if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
@@ -30,12 +40,13 @@ var checkAuth = (req, res, next) => {
   }
   next();
 };
+
 app.use(checkAuth);
 
 items(app)
 auth(app)
 
-app.listen(3000, () => {
+server.listen(3000, () => {
   console.log('listening on port 3000!')
 })
 
