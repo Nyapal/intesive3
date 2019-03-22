@@ -128,12 +128,12 @@ label {
 }
 
 #chatInput {
-  width : 100%;
+  width: 100%;
   display: inline;
 }
 
 #sendChatBtn{
-  width : 10%;
+  width: 10%;
   display: inline;
 }
 
