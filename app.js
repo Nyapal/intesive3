@@ -11,14 +11,6 @@ io.sockets.on('connection', function(socket){
   })
 })
 
-// //Socket.io
-// //We'll store our online users here
-// let onlineUsers = {};
-// io.on("connection", (socket) => {
-//   //Make sure to send the users to our chat file
-//   require('./sockets/chat.js')(io, socket, onlineUsers);
-// })
-
 //more app.js 
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
@@ -54,27 +46,6 @@ app.use(checkAuth);
 
 items(app)
 auth(app)
-
-//socket.io
-
-// jQuery(function($){
-//   let socket = io.connect();
-//   let $messageForm = $('#send-message');
-//   let $messageBox = $('#message');
-//   let $chat = $('#chat');
-
-//   console.log($messageBox)
-//   $messageForm.submit(function(e) {
-//     e.preventDefault()
-//     socket.emit('send message', $messageBox.val())
-//     console.log($messageBox.val())
-//     $messageBox.val('');
-//   })
-
-//   socket.on('new message', function(data) {
-//     $chat.append(data + '<br/>')
-//   })
-// })
 
 server.listen(3000, () => {
   console.log('listening on port 3000!')

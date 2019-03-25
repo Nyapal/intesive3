@@ -66,10 +66,5 @@ module.exports = (app) => {
     res.clearCookie('nToken');
     res.redirect('/');
   });
-
-  //
-  //
-  //
-
 }
 

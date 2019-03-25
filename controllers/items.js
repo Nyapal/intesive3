@@ -15,10 +15,12 @@ function items (app) {
     })
   })
 
+  // CHAT
   app.get('/chat', (req, res) => {
     res.render('chat')
   })
 
+  // ABOUT
   app.get('/about', (req, res) => {
     res.render('about')
   })
