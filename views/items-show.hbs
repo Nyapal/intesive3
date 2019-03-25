@@ -1,19 +1,22 @@
-<a href="/">Home</a>
 
 <h1>{{item.name}}</h1>
-<h2>Username: {{item.author.username}}</h2>
+<h2>Posted By: {{item.author.username}}</h2>
 <h2>{{item.desc}}</h2>
 <p>{{item.status}}</p>
 
-<p><a href="/items/{{item._id}}/edit">Edit</a></p>
+<button type="button" class="btn btn-light">
+  <a href="/items/{{item._id}}/edit">Edit</a>
+</button>
 
-<p><form method="POST" action="/items/{{item._id}}?_method=DELETE">
-  <button type="submit">Delete</button>
-</form></p>
+<form method="POST" action="/items/{{item._id}}?_method=DELETE">
+  <button type="submit" class="btn btn-light">Delete</button>
+</form>
 
+
+{{!-- 
 <p>
   <a href="/chat">Send Message</a>
-</p>
+</p> --}}
 
 {{!-- <form class="usernameForm">
   <input id="usernameInput" placeholder="Username"></input>

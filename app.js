@@ -2,16 +2,22 @@ require('dotenv').config();
 //app.js
 const express = require('express')
 const app = express()
-const server = require('http').Server(app)
+const server = require('http').createServer(app)
+const io = require('socket.io').listen(server);
 
-//Socket.io
-const io = require('socket.io')(server);
-//We'll store our online users here
-let onlineUsers = {};
-io.on("connection", (socket) => {
-  //Make sure to send the users to our chat file
-  require('./sockets/chat.js')(io, socket, onlineUsers);
+io.sockets.on('connection', function(socket){
+  socket.on('send message', function(data) {
+    io.sockets.emit('new message', data);
+  })
 })
+
+// //Socket.io
+// //We'll store our online users here
+// let onlineUsers = {};
+// io.on("connection", (socket) => {
+//   //Make sure to send the users to our chat file
+//   require('./sockets/chat.js')(io, socket, onlineUsers);
+// })
 
 //more app.js 
 const exphbs = require('express-handlebars');
@@ -48,6 +54,27 @@ app.use(checkAuth);
 
 items(app)
 auth(app)
+
+//socket.io
+
+// jQuery(function($){
+//   let socket = io.connect();
+//   let $messageForm = $('#send-message');
+//   let $messageBox = $('#message');
+//   let $chat = $('#chat');
+
+//   console.log($messageBox)
+//   $messageForm.submit(function(e) {
+//     e.preventDefault()
+//     socket.emit('send message', $messageBox.val())
+//     console.log($messageBox.val())
+//     $messageBox.val('');
+//   })
+
+//   socket.on('new message', function(data) {
+//     $chat.append(data + '<br/>')
+//   })
+// })
 
 server.listen(3000, () => {
   console.log('listening on port 3000!')

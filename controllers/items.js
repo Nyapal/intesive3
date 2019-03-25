@@ -19,6 +19,10 @@ function items (app) {
     res.render('chat')
   })
 
+  app.get('/about', (req, res) => {
+    res.render('about')
+  })
+
   // NEW
   app.get('/items/new', (req, res) => {
     let currentUser = req.user;
