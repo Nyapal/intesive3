@@ -92,7 +92,7 @@ function items (app) {
     let currentUser = req.user;
     console.log("DELETED item")
     Item.findByIdAndRemove(req.params.id).then((item) => {
-      res.redirect('/');
+      res.redirect('/items');
     }).catch((err) => {
       console.log(err.message);
     })
