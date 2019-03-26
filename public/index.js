@@ -1,8 +1,26 @@
 jQuery(function($){
   let socket = io.connect();
+  let $nickForm = $('#setNick');
+  let $nickError = $('#nickError');
+  let $nickBox = $('#nickname')
   let $messageForm = $('#send-message');
   let $messageBox = $('#message');
   let $chat = $('#chat');
+
+  $nickForm.submit(function(e) {
+    e.preventDefault();
+    socket.emit('new users', $nickBox.val(), function(data) {
+      if(data) {
+        console.log('im here')
+        $('#nickWrap').hide()
+        $('#contentWrap').show()
+      } else {
+        console.log('not working :(')
+        $nickError.html('Username is taken. Try again')
+      }
+    })
+    $nickBox.val('')
+  })
 
   $messageForm.submit(function(e) {
     e.preventDefault()
@@ -14,3 +32,8 @@ jQuery(function($){
     $chat.append(data + '<br/>')
   })
 })
+
+function showDiv() {
+  document.getElementById('welcomeDiv').style.display = "block";
+  // document.getElementById('landingImage').height = "400px"
+}

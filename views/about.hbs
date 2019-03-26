@@ -1,1 +1,52 @@
-this is where the about will go 
+<div style="height: 500px; position: relative;">
+  <div style="margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);">
+    <div>
+      <div class="row">
+          <img id="landingImage" src="/public/lost-n-found.jpg" height="400px" style="display: block;margin-left: auto;margin-right: auto;" alt="">
+        </div>
+          <div style="text-align: center">
+
+            {{!-- <button type="button" class="btn btn-light">
+              <a href="/login"> Log In </a>
+            </button> --}}
+
+            <div id="welcomeDiv"  style="display:none;" class="answer_list"> 
+              <form method="POST" action="/login">
+              <fieldset>
+                <legend>{{title}}</legend>
+                <!-- NAME -->
+                <p>
+                  <label for="username"> Username </label><br>
+                  <input id="username" type="text" name="username" value="{{username}}"/>
+                </p>
+                <!-- PASSWORD -->
+                <p>
+                  <label for="password"> Password </label><br>
+                  <input id="password" type="password" name="password" value="{{password}}" />
+                </p>
+              </fieldset>
+              <p>
+                <button type="submit" class="btn btn-light"> Log In </button>
+              </p>
+              </form>
+            </div>
+            <input type="button" name="answer" value="Log In" onclick="showDiv()" />
+
+            <button type="button" class="btn btn-light">
+              <a href="/sign-up"> Sign Up </a>
+            </button>
+            <br/>
+            <button type="button" class="btn btn-light">
+              <a href="/items"> Look Inside </a>
+            </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- <br/>
+<button>
+  How To Use:
+</button> --}}

@@ -4,7 +4,7 @@ const User = require('../models/user')
 function items (app) {
   
   // INDEX 
-  app.get('/', (req, res) => {
+  app.get('/items', (req, res) => {
     let currentUser = req.user;
     Item.find().populate('author')
     .then(items => {
@@ -20,8 +20,8 @@ function items (app) {
     res.render('chat')
   })
 
-  // ABOUT
-  app.get('/about', (req, res) => {
+  // (LANDING PAGE) ABOUT
+  app.get('/', (req, res) => {
     res.render('about')
   })
 

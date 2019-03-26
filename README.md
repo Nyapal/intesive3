@@ -5,4 +5,6 @@ Day 1 - Built a simple CRUD app, users are able to create, view, edit and delete
 
 Day 2 - Added authentication, testing for auth are broken otherwise everything is working
 
-Day 3 - Working on adding a chat feature
+Day 3 - Added a chat feature using socket.io
+
+Day 4 - Working on adding image upload using aws 

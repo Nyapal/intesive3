@@ -4,8 +4,23 @@ const express = require('express')
 const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io').listen(server);
+let nicknames = [];
 
 io.sockets.on('connection', function(socket){
+  socket.on('new user', function(data, callback) {
+    console.log('a new user has connected')
+    if (nicknames.indexOf(data) != -1) {
+      console.log('username taken')
+      callback(false)
+    } else {
+      console.log('username not taken')
+      callback(true)
+      socket.nickname = data;
+      nicknames.push(socket.nickname)
+      io.sockets.emit('usernames', nicknames)
+    }
+  })
+  
   socket.on('send message', function(data) {
     io.sockets.emit('new message', data);
   })
