@@ -17,7 +17,7 @@
           <div id="chat" style="height: 300px"></div>
           <form id="send-message">
             <input size="35" id="message"></input>
-            <input type="submit"></input>
+            <button type="submit" class="btn btn-light"> Send Message: </button>
           </form>
         </div>
         <div id="users"></div>
@@ -33,9 +33,35 @@
     {{/if}} --}}
 
   {{else}}
-  <div>
+    {{#if items.length}}
+      <div class="row">
+        sum more shit i got figure out smh
+        {{!-- {{each }}
 
-  </div>
+        | <div class="row">
+
+         each pic, index in photolist
+
+          |<div class ="col s3"><img src = #{pic['path']} alt="image" class="responsive-img" /><p class="center-align caption">#{pic['caption']}</p></div> 
+
+          if (((index+1) % 4) == 0 )
+
+           | </div><div class="row">
+
+         <div class="row">
+         each pic, index in photolist
+          |<div class ="col s3"><img src = #{pic['path']} alt="image" class="responsive-img" /><p class="center-align caption">#{pic['caption']}</p></div> 
+          if (((index+1) % 4) == 0 )
+           | </div><div class="row"> --}}
+      </div>
+    {{else}}
+      <div class="row">
+        <div class="col s12">
+          <p> The lost & found is empty </p>
+        </div>
+      </div>
+    {{/if}}
+  
   <div class="row" style="margin-top: 50px">
     {{#each items}}
     <div class="col-md-4">

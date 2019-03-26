@@ -4,7 +4,7 @@
     <div>
       <div class="row">
           <a href="/">
-            <img id="landingImage" src="/public/lost-n-found.jpg" height="400px" style="display: block;margin-left: auto;margin-right: auto;" alt="">
+            <img id="landingImage" src="/public/lost-n-found.jpg" height="375px" style="display: block;margin-left: auto;margin-right: auto;" alt="">
           </a>
         </div>
           <div style="text-align: center">
@@ -30,13 +30,21 @@
                 
 
               </div>
-              <input id="loginButton" type="button" value="Log In" onclick="showLogin()" />
+              {{!-- <input id="loginButton" type="button" value="Log In" onclick="showLogin()" /> --}}
+              <button id="loginButton" type="button" class="btn btn-light" onclick="showLogin()">
+              Log In
+            </button>
 
               <div id="signUp" style="display:none;">
                 <form method="POST" action="/sign-up">
                   <fieldset>
                     <legend>{{title}}</legend>
                     <!-- NAME -->
+                    <p>
+                      <label for="name"> Name: </label><br>
+                      <input id="name" type="text" name="name" value="{{name}}"/>
+                    </p>
+                    <!-- USERNAME -->
                     <p>
                       <label for="username"> Username </label><br>
                       <input id="username" type="text" name="username" value="{{username}}"/>
@@ -52,9 +60,10 @@
                   </p>
                 </form>
               </div>
-              <input id="signUpButton" type="button" value="Sign Up" onclick="showSignUp()" />
+              <button id="signUpButton" class="btn btn-light" onclick="showSignUp()"> Sign Up
+                {{!-- <input id="signUpButton" type="button" value="Sign Up!!" onclick="showSignUp()" /> --}}
+              </button>
             <br/>
-
             <button id="lookInsideButton" type="button" class="btn btn-light">
               <a href="/items"> Look Inside </a>
             </button>

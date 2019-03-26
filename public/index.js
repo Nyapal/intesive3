@@ -47,3 +47,20 @@ function showSignUp() {
   document.getElementById('signUpButton').style.display = "none";
   document.getElementById('loginButton').style.display = "none";
 }
+
+// Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+//   if(v1 === v2) {
+//     return options.fn(this);
+//   }
+//   return options.inverse(this);
+// });
+
+// if msg == 1
+//   .success
+//     | Photo uploaded successfully
+// else if msg == 2
+//   .error
+//     | File size too large
+// else if msg == 3
+//   .error
+//     | Invalid file type. Only JPG, PNG or GIF file are allowed.      
