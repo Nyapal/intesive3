@@ -1,25 +1,36 @@
-<div class="row" style="margin-top: 50px">
-  <div class="col-md-6">
-    <ul>
-      {{#each items}}
-        <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
-        <p>
-          <small>{{this.desc}}</small>
-        </p>
-      {{/each}}
-    </ul>
-  </div>
-  <div class="col-md-6" style="margin-top: 50px">
-    {{!-- chat feature starts here --}}
-    <div id="contentWrap" style="position:fixed; top:20px; margin-top: 50px">
-      <div id="chatWrap" style='float:left; border: 1px solid black'>
-        <div id="chat" style="height: 300px"></div>
-        <form id="send-message">
-          <input size="35" id="message"></input>
-          <input type="submit"></input>
-        </form>
+{{#if currentUser}}
+  <div class="row" style="margin-top: 50px">
+    <div class="col-md-6">
+      <ul>
+        {{#each items}}
+          <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
+          <p>
+            <small>{{this.desc}}</small>
+          </p>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-6" style="margin-top: 50px">
+      {{!-- chat feature starts here --}}
+      <div id="contentWrap" style="position:fixed; top:20px; margin-top: 50px">
+        <div id="chatWrap" style='float:left; border: 1px solid black'>
+          <div id="chat" style="height: 300px"></div>
+          <form id="send-message">
+            <input size="35" id="message"></input>
+            <input type="submit"></input>
+          </form>
+        </div>
+        <div id="users"></div>
       </div>
-      <div id="users"></div>
     </div>
   </div>
-</div>
+  {{else}}
+  <div class="row" style="margin-top: 50px">
+    {{#each items}}
+    <div class="col-md-4">
+      <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
+      <p><small>{{this.desc}}</small></p>
+    </div>
+    {{/each}}
+  </div>
+{{/if}}

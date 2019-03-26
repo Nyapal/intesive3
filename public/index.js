@@ -33,7 +33,17 @@ jQuery(function($){
   })
 })
 
-function showDiv() {
-  document.getElementById('welcomeDiv').style.display = "block";
-  // document.getElementById('landingImage').height = "400px"
+function showLogin() {
+  document.getElementById('login').style.display = "block";
+  document.getElementById('landingImage').style="float:left;width:50px;height:42px;";
+  document.getElementById('signUpButton').style.display = "none";
+  document.getElementById('loginButton').style.display = "none";
+  document.getElementById('lookInsideButton').style.display = "none";
+}
+
+function showSignUp() {
+  document.getElementById('signUp').style.display = "block";
+  document.getElementById('landingImage').style="float:left;width:50px;height:42px;";
+  document.getElementById('signUpButton').style.display = "none";
+  document.getElementById('loginButton').style.display = "none";
 }

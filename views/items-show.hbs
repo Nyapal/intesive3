@@ -3,10 +3,12 @@
 <h2>{{item.desc}}</h2>
 <p>{{item.status}}</p>
 
-<button type="button" class="btn btn-light">
-  <a href="/items/{{item._id}}/edit">Edit</a>
-</button>
+{{#if currentUser}}   
+  <button type="button" class="btn btn-light">
+    <a href="/items/{{item._id}}/edit">Edit</a>
+  </button>
 
-<form method="POST" action="/items/{{item._id}}?_method=DELETE">
-  <button type="submit" class="btn btn-light">Delete</button>
-</form>
+  <form method="POST" action="/items/{{item._id}}?_method=DELETE">
+    <button type="submit" class="btn btn-light">Delete</button>
+  </form>
+{{/if}}

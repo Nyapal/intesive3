@@ -3,41 +3,59 @@
   transform: translate(-50%, -50%);">
     <div>
       <div class="row">
-          <img id="landingImage" src="/public/lost-n-found.jpg" height="400px" style="display: block;margin-left: auto;margin-right: auto;" alt="">
+          <a href="/">
+            <img id="landingImage" src="/public/lost-n-found.jpg" height="400px" style="display: block;margin-left: auto;margin-right: auto;" alt="">
+          </a>
         </div>
           <div style="text-align: center">
-
-            {{!-- <button type="button" class="btn btn-light">
-              <a href="/login"> Log In </a>
-            </button> --}}
-
-            <div id="welcomeDiv"  style="display:none;" class="answer_list"> 
-              <form method="POST" action="/login">
-              <fieldset>
-                <legend>{{title}}</legend>
-                <!-- NAME -->
+              <div id="login" style="display:none;">
+                <form method="POST" action="/login">
+                <fieldset>
+                  <legend>{{title}}</legend>
+                  <!-- NAME -->
+                  <p>
+                    <label for="username"> Username </label><br>
+                    <input id="username" type="text" name="username" value="{{username}}"/>
+                  </p>
+                  <!-- PASSWORD -->
+                  <p>
+                    <label for="password"> Password </label><br>
+                    <input id="password" type="password" name="password" value="{{password}}" />
+                  </p>
+                </fieldset>
                 <p>
-                  <label for="username"> Username </label><br>
-                  <input id="username" type="text" name="username" value="{{username}}"/>
+                  <button type="submit" class="btn btn-light"> Log In </button>
                 </p>
-                <!-- PASSWORD -->
-                <p>
-                  <label for="password"> Password </label><br>
-                  <input id="password" type="password" name="password" value="{{password}}" />
-                </p>
-              </fieldset>
-              <p>
-                <button type="submit" class="btn btn-light"> Log In </button>
-              </p>
-              </form>
-            </div>
-            <input type="button" name="answer" value="Log In" onclick="showDiv()" />
+                </form>
+                
 
-            <button type="button" class="btn btn-light">
-              <a href="/sign-up"> Sign Up </a>
-            </button>
+              </div>
+              <input id="loginButton" type="button" value="Log In" onclick="showLogin()" />
+
+              <div id="signUp" style="display:none;">
+                <form method="POST" action="/sign-up">
+                  <fieldset>
+                    <legend>{{title}}</legend>
+                    <!-- NAME -->
+                    <p>
+                      <label for="username"> Username </label><br>
+                      <input id="username" type="text" name="username" value="{{username}}"/>
+                    </p>
+                    <!-- PASSWORD -->
+                    <p>
+                      <label for="password"> Password </label><br>
+                      <input id="password" type="password" name="password" value="{{password}}" />
+                    </p>
+                  </fieldset>
+                  <p>
+                    <button type="submit" class="btn btn-light"> Sign Up</button>
+                  </p>
+                </form>
+              </div>
+              <input id="signUpButton" type="button" value="Sign Up" onclick="showSignUp()" />
             <br/>
-            <button type="button" class="btn btn-light">
+
+            <button id="lookInsideButton" type="button" class="btn btn-light">
               <a href="/items"> Look Inside </a>
             </button>
         </div>
