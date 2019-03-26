@@ -34,7 +34,7 @@ const methodOverride = require('method-override')
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken')
 
-mongoose.connect('mongodb://localhost/lost-and-found', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/lost-and-found', { useNewUrlParser: true });
 
 const items = require('./controllers/items')
 const auth = require('./controllers/auth.js')
@@ -62,7 +62,7 @@ app.use(checkAuth);
 items(app)
 auth(app)
 
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000, () => {
   console.log('listening on port 3000!')
 })
 
