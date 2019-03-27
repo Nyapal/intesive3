@@ -1,14 +1,22 @@
-<h1>{{item.name}}</h1>
-<h2>Posted By: {{item.author.username}}</h2>
-<h2>{{item.desc}}</h2>
-<p>{{item.status}}</p>
+<div class="divOne">
+  <div class="divTwo">
+    <h1>Item: {{item.name}}</h1>
+    <h2>Description: {{item.desc}}</h2>
+    <h2>Posted By: {{item.author.username}}</h2>
+    {{#if currentUser}}   
+      <button type="button" class="btn btn-light">
+        <a href="/items/{{item._id}}/edit">Edit</a>
+      </button>
+      <form method="POST" action="/items/{{item._id}}?_method=DELETE">
+        <button type="submit" class="btn btn-light">Delete</button>
+      </form>
+    {{/if}}
+    <button class="btn btn-light">
+      <a href="/items">
+        Back to All items
+      </a>
+    </button>
+  </div>
+</div>
 
-{{#if currentUser}}   
-  <button type="button" class="btn btn-light">
-    <a href="/items/{{item._id}}/edit">Edit</a>
-  </button>
 
-  <form method="POST" action="/items/{{item._id}}?_method=DELETE">
-    <button type="submit" class="btn btn-light">Delete</button>
-  </form>
-{{/if}}

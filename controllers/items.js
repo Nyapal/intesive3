@@ -1,5 +1,6 @@
 const Item = require('../models/item')
 const User = require('../models/user')
+const multer = require('multer');
 
 function items (app) {
   
@@ -25,12 +26,16 @@ function items (app) {
     res.render('about')
   })
 
+  // PUBLIC PREVIEW
+  app.get('/preview', (req, res) => {
+    res.render('preview')
+  })
+
   // NEW
   app.get('/items/new', (req, res) => {
     let currentUser = req.user;
     res.render('items-new', {title: "New Item" , currentUser});
   })
-
   //CREATE
   app.post("/items/new", (req, res) => {
     if (req.user) {
@@ -66,7 +71,7 @@ function items (app) {
       console.log(err.message);
     })
   })
-
+  
   // EDIT
   app.get('/items/:id/edit', (req, res) => {
     let currentUser = req.user;

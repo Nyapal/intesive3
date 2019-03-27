@@ -1,79 +1,58 @@
-<div style="height: 500px; position: relative;">
-  <div style="margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);">
-    <div>
-      <div class="row">
-          <a href="/">
-            <img id="landingImage" src="/public/lost-n-found.jpg" height="375px" style="display: block;margin-left: auto;margin-right: auto;" alt="">
-          </a>
-        </div>
-          <div style="text-align: center">
-              <div id="login" style="display:none;">
-                <form method="POST" action="/login">
-                <fieldset>
-                  <legend>{{title}}</legend>
-                  <!-- NAME -->
-                  <p>
-                    <label for="username"> Username </label><br>
-                    <input id="username" type="text" name="username" value="{{username}}"/>
-                  </p>
-                  <!-- PASSWORD -->
-                  <p>
-                    <label for="password"> Password </label><br>
-                    <input id="password" type="password" name="password" value="{{password}}" />
-                  </p>
-                </fieldset>
-                <p>
-                  <button type="submit" class="btn btn-light"> Log In </button>
-                </p>
-                </form>
-                
+<div class="divOne">
+  <div class="divTwo">
+    
+    {{!-- Lost & Found Image  --}}
+    <a href="/">
+      <img id="landingImage" src="/public/lost-n-found.jpg" height="375px" style="margin-left: auto;margin-right: auto;">
+    </a>
+    <br>
 
-              </div>
-              {{!-- <input id="loginButton" type="button" value="Log In" onclick="showLogin()" /> --}}
-              <button id="loginButton" type="button" class="btn btn-light" onclick="showLogin()">
-              Log In
-            </button>
-
-              <div id="signUp" style="display:none;">
-                <form method="POST" action="/sign-up">
-                  <fieldset>
-                    <legend>{{title}}</legend>
-                    <!-- NAME -->
-                    <p>
-                      <label for="name"> Name: </label><br>
-                      <input id="name" type="text" name="name" value="{{name}}"/>
-                    </p>
-                    <!-- USERNAME -->
-                    <p>
-                      <label for="username"> Username </label><br>
-                      <input id="username" type="text" name="username" value="{{username}}"/>
-                    </p>
-                    <!-- PASSWORD -->
-                    <p>
-                      <label for="password"> Password </label><br>
-                      <input id="password" type="password" name="password" value="{{password}}" />
-                    </p>
-                  </fieldset>
-                  <p>
-                    <button type="submit" class="btn btn-light"> Sign Up</button>
-                  </p>
-                </form>
-              </div>
-              <button id="signUpButton" class="btn btn-light" onclick="showSignUp()"> Sign Up
-                {{!-- <input id="signUpButton" type="button" value="Sign Up!!" onclick="showSignUp()" /> --}}
-              </button>
-            <br/>
-            <button id="lookInsideButton" type="button" class="btn btn-light">
-              <a href="/items"> Look Inside </a>
-            </button>
-        </div>
-      </div>
+    {{!-- Log In Form --}}
+    <div id="login" style="display:none;">
+      <form method="POST" action="/login">
+        {{> auth-form}}
+        <p>
+          <button type="submit" class="btn btn-light"> Log In </button>
+        </p>
+      </form>
     </div>
+    
+    {{!-- Sign Up Form --}}
+    <div id="signUp" style="display:none;">
+      <form method="POST" action="/sign-up">
+        <fieldset>
+          <legend>{{title}}</legend>
+          <!-- NAME -->
+          <p>
+            <label for="name"> Name: </label><br>
+            <input id="name" type="text" name="name" value="{{name}}"/>
+          </p>
+          <!-- USERNAME -->
+          <p>
+            <label for="username"> Username: </label><br>
+            <input id="username" type="text" name="username" value="{{username}}"/>
+          </p>
+          <!-- PASSWORD -->
+          <p>
+            <label for="password"> Password: </label><br>
+            <input id="password" type="password" name="password" value="{{password}}" />
+          </p>
+        </fieldset>
+        <p>
+          <button type="submit" class="btn btn-light"> Sign Up </button>
+        </p>
+      </form>
+    </div>
+
+    {{!-- Log In & Sign Up Buttons --}}
+    <div class="text-center" style="margin-top: 30px">
+      <button id="loginButton" type="button" class="btn btn-light" onclick="showLogin()"> Log In </button>
+      <button id="signUpButton" type="button" class="btn btn-light" onclick="showSignUp()"> Sign Up </button>
+      <br/>
+      {{!-- <button id="lookInsideButton" type="button" class="btn btn-light">
+        <a href="/preview"> Look Inside </a>
+      </button> --}}
+    </div>
+   
   </div>
 </div>
-
-{{!-- <br/>
-<button>
-  How To Use:
-</button> --}}

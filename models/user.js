@@ -6,7 +6,8 @@ const UserSchema = new Schema({
   createdAt: { type: Date },
   updatedAt: { type: Date },
   password: { type: String, select: false },
-  username: { type: String, required: true }
+  username: { type: String, required: true },
+  name: { type: String }
 });
 
 // Define the callback with a regular function to avoid problems with this

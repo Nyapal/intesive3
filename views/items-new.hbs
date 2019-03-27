@@ -1,13 +1,25 @@
-<form method="POST" action="/items/new">
-  {{> items-form}}
-
-  <p>
-    <button type="submit" class="btn btn-light">Upload Item</button>
-  </p>
-  <p>
-    <button class="btn btn-light">
-      <a href="/">Cancel</a>
-    </button>
-  </p>
-
-</form>
+<div class="divOne">
+  <div class="divTwo">
+    <form method="POST" action="/items/new">
+      <h1>Add a New Item: </h1>
+      <fieldset>
+        <!-- NAME -->
+        <p>
+          <label for="item-name"> Name </label><br>
+          <input id="item-name" type="text" name="name" value="{{item.name}}"/>
+        </p>
+        <!-- DESC -->
+        <p>
+          <label for="desc"> Description </label><br>
+          <input id="desc" type="text" name="desc" value="{{item.desc}}" />
+        </p>
+      </fieldset>
+      <p>
+        <button type="submit" class="btn btn-light">Upload Item</button>
+        <button class="btn btn-light">
+          <a href="/">Cancel</a>
+        </button>
+      </p>
+    </form>
+  </div>
+</div>

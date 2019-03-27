@@ -35,7 +35,7 @@ jQuery(function($){
 
 function showLogin() {
   document.getElementById('login').style.display = "block";
-  document.getElementById('landingImage').style="float:left;width:50px;height:42px;";
+  document.getElementById('landingImage').style.display="none";
   document.getElementById('signUpButton').style.display = "none";
   document.getElementById('loginButton').style.display = "none";
   document.getElementById('lookInsideButton').style.display = "none";
@@ -43,24 +43,8 @@ function showLogin() {
 
 function showSignUp() {
   document.getElementById('signUp').style.display = "block";
-  document.getElementById('landingImage').style="float:left;width:50px;height:42px;";
+  document.getElementById('landingImage').style.display="none";
   document.getElementById('signUpButton').style.display = "none";
   document.getElementById('loginButton').style.display = "none";
+  document.getElementById('lookInsideButton').style.display = "none";
 }
-
-// Handlebars.registerHelper('ifCond', function(v1, v2, options) {
-//   if(v1 === v2) {
-//     return options.fn(this);
-//   }
-//   return options.inverse(this);
-// });
-
-// if msg == 1
-//   .success
-//     | Photo uploaded successfully
-// else if msg == 2
-//   .error
-//     | File size too large
-// else if msg == 3
-//   .error
-//     | Invalid file type. Only JPG, PNG or GIF file are allowed.      

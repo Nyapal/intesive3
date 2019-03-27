@@ -1,34 +1,33 @@
-<div style="text-align: center">
-  <h1> Add Item: </h1>
-  <form id='uploadForm' method="POST" action="/items/new" ref='uploadForm' encType="multipart/form-data">
-    <fieldset>
-      <!-- NAME -->
-      <p>
-        <label for="item-name"> What was lost/found? </label><br>
-        <input id="item-name" type="text" name="name" value="{{item.name}}"/>
-      </p>
+{{#each items}}
+<h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
+<p>
+<small>{{this.desc}}</small>
+</p>
+{{/each}}
 
-      <!-- DESC -->
-      <p>
-        <label for="desc"> Give a detailed description of what was lost/found: </label><br>
-        <input id="desc" type="text" name="desc" value="{{item.desc}}" />
-      </p>
+<div class="row" style="margin-top: 50px">
+{{!-- items go here --}}
+<div class="col-md-6">
+  <ul>
+  {{#each items}}
+    <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
+    <p>
+      <small>{{this.desc}}</small>
+    </p>
+  {{/each}}
+</ul>
+</div>
 
-      <!-- STATUS -->
-      {{!-- <p>
-        <label for="status"> Status </label><br>
-        <input id="status" type="boolean" name="status" value="{{item.status}}" />
-      </p> --}}
-    </fieldset>  
-  </form>
-  {{!-- <form id='uploadForm' method="POST" action="/items/new" ref='uploadForm' encType="multipart/form-data">
-
-    <input type="file" name="sampleFile" />
-    <input type='submit' value='Upload!' />
-
-  </form> --}}
-  <p>
-    <button type="submit" class="btn btn-light"> Upload Item </button>
-    <button class="btn btn-light"><a href="/items"> Cancel</a> </button>
-  </p>
+{{!-- chat feature starts here --}}
+<div class="col-md-6" style="margin-top: 50px">
+  <div id="contentWrap" style="position:fixed; top:20px; margin-top: 50px">
+    <div id="chatWrap" style='float:left; border: 1px solid black'>
+      <div id="chat" style="height: 300px"></div>
+      <form id="send-message">
+        <input size="35" id="message"></input>
+        <button type="submit" class="btn btn-light"> Send Message: </button>
+      </form>
+    </div>
+  </div>
+</div>
 </div>

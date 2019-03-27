@@ -1,0 +1,28 @@
+<div style="margin-top: 50px">
+  <div class="text-center"> 
+    <h1> Items </h1>
+  </div>
+</div>
+{{!-- <div class="row">
+  <div class="col-md-6">
+    <ul>
+      {{#each items}}
+        <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
+        <p>
+          <small>{{this.desc}}</small>
+        </p>
+      {{/each}}
+    </ul>
+  </div>
+</div> --}}
+
+<div class="row">
+  <div class="col-md-6">
+    {{#each items}}
+      <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
+      <p>
+        <small>{{this.desc}}</small>
+      </p>
+    {{/each}}
+  </div>
+</div>

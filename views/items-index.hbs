@@ -1,18 +1,18 @@
-{{#if currentUser}}
-  <div class="row" style="margin-top: 50px">
+<div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    {{#each items}}
+      <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
+      <p>
+        <small>{{this.desc}}</small>
+      </p>
+    {{/each}}
+  </div>
+  <div class="col-md-6">
+    {{#if currentUser}} 
     <div class="col-md-6">
-      <ul>
-        {{#each items}}
-          <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
-          <p>
-            <small>{{this.desc}}</small>
-          </p>
-        {{/each}}
-      </ul>
-    </div>
-    <div class="col-md-6" style="margin-top: 50px">
-      {{!-- chat feature starts here --}}
-      <div id="contentWrap" style="position:fixed; top:20px; margin-top: 50px">
+      <div id="contentWrap" style="position:fixed; top:20px; margin-top: 75px">
         <div id="chatWrap" style='float:left; border: 1px solid black'>
           <div id="chat" style="height: 300px"></div>
           <form id="send-message">
@@ -20,54 +20,8 @@
             <button type="submit" class="btn btn-light"> Send Message: </button>
           </form>
         </div>
-        <div id="users"></div>
       </div>
     </div>
+  {{/if}}
   </div>
-    {{!-- {{#if items.length === 0}}
-      there are no items
-      {{log items.length}}
-    {{else}}
-    there are items in the lost & found 
-    {{log items.length}}
-    {{/if}} --}}
-
-  {{else}}
-    {{#if items.length}}
-      <div class="row">
-        sum more shit i got figure out smh
-        {{!-- {{each }}
-
-        | <div class="row">
-
-         each pic, index in photolist
-
-          |<div class ="col s3"><img src = #{pic['path']} alt="image" class="responsive-img" /><p class="center-align caption">#{pic['caption']}</p></div> 
-
-          if (((index+1) % 4) == 0 )
-
-           | </div><div class="row">
-
-         <div class="row">
-         each pic, index in photolist
-          |<div class ="col s3"><img src = #{pic['path']} alt="image" class="responsive-img" /><p class="center-align caption">#{pic['caption']}</p></div> 
-          if (((index+1) % 4) == 0 )
-           | </div><div class="row"> --}}
-      </div>
-    {{else}}
-      <div class="row">
-        <div class="col s12">
-          <p> The lost & found is empty </p>
-        </div>
-      </div>
-    {{/if}}
-  
-  <div class="row" style="margin-top: 50px">
-    {{#each items}}
-    <div class="col-md-4">
-      <h2><a href="/items/{{this._id}}">{{this.name}}</a></h2>
-      <p><small>{{this.desc}}</small></p>
-    </div>
-    {{/each}}
-  </div>
-{{/if}}
+</div>

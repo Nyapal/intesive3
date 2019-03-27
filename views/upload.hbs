@@ -1,72 +1,45 @@
-{{!-- <form action='/upload' method="POST" enctype="multipart/form-data">
-  <div class="row">
-    <div class="col-sm-12">
-      {{#ifCond v1 v2}}
-        {{v1}} is equal to {{v2}}
-      {{else}}
-        {{v1}} is not equal to {{v2}}
-      {{/ifCond}}
-    </div>
-
-  </div>
-  <div class="row">
-
-  </div>
-  <div class="row">
-
-  </div>
-  <div class="row">
-
-  </div>
-
-</form> --}}
-{{!-- 
-  .col.s12
-    if msg ==1
-      .success
-        | Photo uploaded successfully
-    else if msg == 2
-      .error
-        | File size too large
-    else if msg == 3
-      .error
-        | Invalid file type. Only JPG, PNG or GIF file are allowed.      
-.row
-  .col.s12 
-    .file-field.input-field
-      .btn.grey
-        span File
-        input(type='file' name="photo" required)
-      .file-path-wrapper
-        input.file-path.validate(type='text' )
-.row
-  .input-field.col.s12
-  input#caption.validate(type='text' name="caption")
-  label(for='caption') Caption 
-
-.row
-  .col.s12 
-    button.btn.waves-effect.waves-light(type='submit', name='action')
-      | Upload
-      i.material-icons.right send --}}
-
-
-<form action="/upload" method="POST" enctype="multipart/form-data">
-  <div class="row">
-    <div class="col s12"></div>
-  </div>
-  <div class="row">
-    <div class="col s12">
-        <div class="file-field input-field">
-            <div class="btn grey"><span>File</span><input type="file" name="photo" required="required" /></div>
-            <div class="file-path-wrapper"><input class="file-path validate" type="text" /></div>
+<div style="height: 500px; position: relative;">
+  <div style="margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);">
+    {{!-- <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div>
+           yes
         </div>
-    </div>
+        <div class="file-field input-field">
+            <div class="btn grey"> Select Image <input type="file" name="photo" required="required" /></div>
+            <div class="file-path-wrapper"><input class="file-path validate" type="text"/></div>
+        </div>
+        <div class="input-field"><input class="validate" id="caption" type="text" name="caption" /><label for="caption">Caption </label></div>
+        <div> <button class="btn waves-effect waves-light" type="submit" name="action">Upload<i class="material-icons right">send</i></button></div>
+    </form> --}}
+    {{!-- <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="image" />
+      <input type="submit">
+    </form> --}}
+    <div class="container">
+    <h1>File Upload</h1>
+    {{!-- <%= typeof msg != 'undefined' ? msg : '' %> --}}
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <div class="file-field input-field">
+        <div class="btn grey">
+          <span>File</span>
+          <input name="myImage" type="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+    <br>
+    {{!-- <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img"> --}}
   </div>
-  <div class="row">
-    <div class="input-field col s12"><input class="validate" id="caption" type="text" name="caption" /><label for="caption">Caption </label></div>
   </div>
-  <div class="row">
-    <div class="col s12"> <button class="btn waves-effect waves-light" type="submit" name="action">Upload<i class="material-icons right">send</i></button></div>
+</div>
+
+{{!-- <div style="height: 500px; position: relative;">
+  <div style="margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);">
+    How to center in page
   </div>
-</form>
+</div> --}}
